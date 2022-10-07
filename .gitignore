@@ -1,0 +1,7 @@
+/nbproject/
+/.settings/
+.buildpath
+/config.php
+/.idea/
+/.vscode/
+/vscode/
