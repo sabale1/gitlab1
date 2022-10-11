@@ -1,1 +1,48 @@
-code
+pipeline {
+    
+	  agent any
+  tools {nodejs "node"}
+
+	environment{
+	registry="prasabale/java_project"
+	registryCredential='dockerhub'
+	dockerImage=''
+	}
+    
+    //def registry = 'prasabale/java_project'
+    //def registryCredential = 'dockerhub'
+	stages{
+	stage('Git') {
+		steps{
+		git 'https://github.com/sabale1/gitlab1.git'
+		}	
+	}
+	stage('Build') {
+		steps{
+		sh 'yarn'
+		}	
+	}
+	stage('Test') {
+		steps{
+		sh 'npm test'
+		}
+	}
+	stage('Building image') {
+		steps{
+			script{
+			 	dockerImage=docker.build registry	
+			}
+		}
+	}
+	stage('Registring image') {
+		steps{
+			script{
+				docker.withRegistry('',registryCredential){
+				dockerImage.push()
+				}
+			}
+		}
+	}
+	}
+    
+}
