@@ -1,7 +1,7 @@
 pipeline {
     
 	  agent any
-  tools {php "Clover PHP"}
+  tools {Clover PHP "Clover PHP"}
 
 	environment{
 	registry="prasabale/java_project"
