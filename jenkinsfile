@@ -1,7 +1,7 @@
 pipeline {
     
 	  agent any
-  tools {Netbeans"node"}
+  tools {Netbeans "node"}
 
 	environment{
 	registry="prasabale/java_project"
