@@ -1,7 +1,7 @@
 pipeline {
     
 	  agent any
-  tools {php7.4 "node"}
+  tools { Ant junit "junit"}
 
 	environment{
 	registry="prasabale/java_project"
