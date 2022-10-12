@@ -34,10 +34,10 @@ pipeline {
 	stage('docker Image') {
 		steps{
 			script{
-		 	sh 'docker build . -t prasabale/php-project'	
+		 	sh 'docker build -t prasabale/php-project .'	
+				}
 			}
-			}
-		}
+		} 
 		
 stage('Registring image') {
 		steps{
