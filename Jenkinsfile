@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-    DTkit "Ant 1.10.12"
+    DTkit 'Ant 1.10.12'
   }
   
 	environment{
