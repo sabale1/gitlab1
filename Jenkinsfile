@@ -27,7 +27,6 @@ pipeline {
           	script {
                 	git 'http:////github.com/sabale1/gitlab1.git',
                  	echo 'Code Coverage'
-                 	jacoco()
                     }
                      	
             }
