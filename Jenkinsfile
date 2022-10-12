@@ -31,10 +31,10 @@ pipeline {
             }
     }
 
-	stage('docker Image'){
+	stage('docker Image') {
 		steps{
 			script{
-		 	sh 'docker build -t prasabale/php-project'	
+		 	sh 'docker build -t prasabale/php-project .'	
 			}
 			}
 		}
@@ -44,7 +44,7 @@ stage('Registring image') {
 			script{
 				docker.withRegistry('',registryCredential){
 				//dockerImage.push()
-				sh 'docker push prasabale/php-project'
+				sh 'docker push prasabale/php-project .'
 				}
 			}
 		}
