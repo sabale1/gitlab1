@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-    'Ant 1.10.12'
+  ant '1.10.12' 
   }
   
 	environment{
