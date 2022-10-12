@@ -1,18 +1,58 @@
 pipeline {
-    agent any
-    stages {
-        stage('Test'){
-            steps {
-                sh "run_tests.bash"
+  agent any
+  tools {
+    Ant 'Ant 1.10.12'
+  }
+  
+	environment{
+	registry="prasabale/java_project"
+	registryCredential='dockerhub'
+	//dockerImage=''
+	}
+	
+    //each branch has 1 job running at a time
+  options {
+    disableConcurrentBuilds()  
+  }
+
+  stages{
+	stage('Git') {
+		steps{
+		git 'http://github.com/sabale1/gitlab1.git'
+		}	
+	}
+   
+   stage('Code Coverage') {
+        steps{
+          	script {
+                	git 'http:////github.com/sabale1/gitlab1.git',
+                 	echo 'Code Coverage'
+                 	jacoco()
+                    }
+                     	
             }
-        }
     }
-    post {
-        always{
-            xunit (
-                thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '0') ],
-                tools: [ BoostTest(pattern: 'boost/*.xml') ]
-            )
-        }
-    }
- }
+
+	stage('docker Image'){
+		steps{
+			script{
+		 	sh "docker build -t prasabale/java_project."	
+			}
+			}
+		}
+		
+stage('Registring image') {
+		steps{
+			script{
+				docker.withRegistry('',registryCredential){
+				//dockerImage.push()
+				sh "docker push prasabale/java_project"
+				}
+			}
+		}
+	}
+
+
+  }
+	
+}
