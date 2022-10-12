@@ -1,7 +1,6 @@
 pipeline {
-    
-	  agent any
-  tools { Ant junit 1.10.12 "junit"}
+       agent any
+          tools { DTkit "junit"}
 
 	environment{
 	registry="prasabale/java_project"
