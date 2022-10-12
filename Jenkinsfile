@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-   AUnit
+   AUnit "1.10.12"
   }
   
 	environment{
