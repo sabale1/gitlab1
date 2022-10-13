@@ -80,4 +80,3 @@ stage('Deploy to K8s')
 		}
 	}
 
-}
