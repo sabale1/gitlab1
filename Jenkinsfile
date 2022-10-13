@@ -6,7 +6,7 @@ pipeline {
   
 	environment{
 	registry="prasabale/java_project"
-	registryCredential='dockerhub'
+	registryCredential="dockerhub"
 	//dockerImage=''
 	}
 	
