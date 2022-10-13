@@ -54,3 +54,31 @@ stage('Registring image') {
   }
 	
 }
+stage('Deploy to K8s')
+		{
+			steps{
+				sshagent(['k8s-jenkins'])
+				{
+					sh 'scp -r -o StrictHostKeyChecking=no node-deployment.yaml minikube@192.168.26.128:/home'
+					
+					script{
+						try{
+							sh 'ssh minikube@192.168.26.128 kubectl apply -f /home/node-deployment.yaml --kubeconfig=/path/kube.yaml'
+
+							} catch(error)
+							{
+
+							}
+					}
+				}
+			}
+		}
+	}
+
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
+
+}
