@@ -62,14 +62,13 @@ stage('Deploy to K8s')
 					sh 'scp -r -o StrictHostKeyChecking=no node-deployment.yaml minikube@192.168.26.128:/home'
 					
 					script{
-						 {
-							sh 'ssh minikube@192.168.26.128 kubectl apply -f /home/node-deployment.yaml --kubeconfig=/path/kube.yaml'
+						 sh 'ssh minikube@192.168.26.128 kubectl apply -f /home/node-deployment.yaml --kubeconfig=/path/kube.yaml'
 							
 							} 
 						        
 
-							}
+						}
 					}
 				}
-			}
+
 
