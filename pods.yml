@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: php-project
-      image: prasabale/php-project:v1
+      image: prasabale/php-project:tagversion
       ports:
         - containerPort: 8080
