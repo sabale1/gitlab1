@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: php-project
+  labels:
+    app: php-project
+spec:
+  containers:
+    - name: php-project
+      image: prasabale/php-project:v1
+      ports:
+        - containerPort: 8080
