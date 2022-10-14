@@ -50,11 +50,7 @@ stage('Registring image') {
 			}
 		}
 	}
-
-
-  }
 	
-
 stage('Deploy to K8s')
 		{
 	         steps{
@@ -77,3 +73,4 @@ stage('Deploy to K8s')
 			}
 		
 	}
+}
