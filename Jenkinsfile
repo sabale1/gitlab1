@@ -5,7 +5,6 @@ pipeline {
   }
   
 	environment{
-	DOCKER_TAG = getDockerTag()
 	registry="prasabale/java_project"
 	registryCredential="dockerhub"
 	//dockerImage=''
