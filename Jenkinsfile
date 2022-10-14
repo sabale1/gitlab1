@@ -54,7 +54,7 @@ stage('Registring image') {
 
   }
 	
-}
+
 stage('Deploy to K8s')
 		{
 	         steps{
@@ -68,10 +68,10 @@ stage('Deploy to K8s')
 					 }catch(error){
 				      sh " ssh minikube@192.168.26.128 kubectl create -f ."
                                    }
-		        }
-			 }
-		}
+								}
+						}
+				}
 			
-		 }
+			}
 		
-
+	}
