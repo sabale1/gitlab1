@@ -57,7 +57,7 @@ stage('Deploy to K8s')
 			 sh "chmod +x changeTag.sh"
 					sh "./changeTag.sh"
 			 sshagent(['45fbbea9-42bb-41c5-8ce4-da28b57e089e']) {
-				 sh "scp -o StrictHostKeyChecking=no services.yml php-pod.yml minikube@192.168.26.128:/home/minikube/" 
+				 sh "scp -o StrictHostKeyChecking=no services.yml php-pod.yml minikube@192.168.26.128:/home/minikube/demo" 
 	                   script {
 				try {
 				      sh " ssh minikube@192.168.26.128 kubectl apply -f ."
