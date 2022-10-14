@@ -69,6 +69,7 @@ stage('Deploy to K8s')
 				      sh " ssh minikube@192.168.26.128 kubectl create -f ."
                                    }
 		        }
+			 }
 		}
 			
 		 }
