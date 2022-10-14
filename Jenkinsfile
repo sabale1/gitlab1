@@ -40,7 +40,7 @@ pipeline {
 			}
 		} 
 		
-stage('Registring image') {
+       stage('Registring image') {
 		steps{
 			script{
 				docker.withRegistry('',registryCredential){
@@ -53,9 +53,7 @@ stage('Registring image') {
 
 
   }
-	
-
-stage('Deploy to K8s')
+	stage('Deploy to K8s')
 		{
 	         steps{
 			 sh "chmod +x changeTag.sh"
