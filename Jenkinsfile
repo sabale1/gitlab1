@@ -60,6 +60,9 @@ stage('Deploy to K8s')
 	         steps{
 			 sh "chmod +x changeTag.sh"
 			 sh "./changeTag.sh ${DOCKER_TAG}"
+			 sshagent(['45fbbea9-42bb-41c5-8ce4-da28b57e089e']) {
+                             // some block
+                                   }
 		 }
 		}
 			
