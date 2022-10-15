@@ -72,4 +72,4 @@ stage('Deploy to K8s')
 			}
 		
 	}
-}scp ./one.txt minikube@192.168.26.128:/home/minikube/demo
+}
