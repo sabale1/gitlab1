@@ -56,7 +56,7 @@ stage('Deploy to K8s')
 				script{
 			 sh "chmod +x changeTag.sh"
 					sh "./changeTag.sh"
-			 sshagent(['45fbbea9-42bb-41c5-8ce4-da28b57e089e']) {
+			 sshagent(['minikube']){
 				 sh "scp -o StrictHostKeyChecking=no /root/gitlab1/*.yml root@192.168.26.128:/home/minikube/demo" 
 	                   script {
 				try {
@@ -73,3 +73,4 @@ stage('Deploy to K8s')
 		
 	}
 }
+
