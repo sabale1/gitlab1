@@ -57,7 +57,7 @@ stage('Deploy to K8s')
 			 sh "chmod +x changeTag.sh"
 					sh "./changeTag.sh"
 			 sshagent(['minikube']){
-				 sh "scp -o /root/gitlab1/*.yml root@192.168.26.128:/root" 
+				 sh "scp ./service.yml root@192.168.26.128:/root" 
 	                   script {
 				try {
 				      sh " ssh root@192.168.26.128 kubectl apply -f ."
