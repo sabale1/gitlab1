@@ -26,9 +26,8 @@ pipeline {
         steps{
           	script {
                  	echo 'Code Coverage'
-			PHPUnit()
-			
-                    }
+			clover PHP()
+			  }
                      	
             }
     }
